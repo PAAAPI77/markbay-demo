@@ -28,7 +28,7 @@
     body {
       font-family: 'Inter', sans-serif;
       background: #030711;
-      color: #f0f2f5;
+      color: #ffffff;
       overflow-x: hidden;
       transition: background-color 1.2s cubic-bezier(0.4, 0, 0.2, 1);
       line-height: 1.6;
@@ -78,9 +78,9 @@
       pointer-events: none;
       background: linear-gradient(
         135deg,
-        rgba(3, 7, 17, 0.92) 0%,
-        rgba(3, 7, 17, 0.85) 50%,
-        rgba(3, 7, 17, 0.9) 100%
+        rgba(3, 7, 17, 0.7) 0%,
+        rgba(3, 7, 17, 0.5) 50%,
+        rgba(3, 7, 17, 0.7) 100%
       );
       animation: overlayPulse 8s ease-in-out infinite;
       backdrop-filter: blur(4px);
@@ -221,6 +221,7 @@
       letter-spacing: -0.04em;
       line-height: 1.1;
       color: #ffffff;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
     }
 
     body.light-mode h1, 
@@ -264,12 +265,13 @@
     }
 
     .section-sub {
-      font-size: 1.4rem;
-      color: #a0aec0;
+      font-size: 1.6rem;
+      color: #e2e8f0;
       max-width: 700px;
       margin-bottom: 4rem;
       font-weight: 400;
       letter-spacing: -0.01em;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.3);
     }
 
     body.light-mode .section-sub {
@@ -402,7 +404,7 @@
       color: #ffffff;
       text-decoration: none;
       font-weight: 400;
-      font-size: 1rem;
+      font-size: 1.15rem;
       letter-spacing: 0.5px;
       position: relative;
       padding: 0.5rem 0;
@@ -598,12 +600,13 @@
     }
 
     .hero p {
-      font-size: 1.5rem;
-      color: #cbd5e0;
+      font-size: 1.6rem;
+      color: #f0f4f8;
       max-width: 700px;
       margin-bottom: 3rem;
       line-height: 1.6;
       font-weight: 400;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.5);
     }
 
     body.light-mode .hero p {
@@ -640,7 +643,7 @@
     }
 
     .real-metric .label {
-      color: #a0aec0;
+      color: #e2e8f0;
       font-size: 1rem;
       letter-spacing: 0.5px;
       font-weight: 300;
@@ -725,7 +728,7 @@
       align-items: center;
       gap: 1rem;
       font-size: 1.1rem;
-      color: #a0aec0;
+      color: #e2e8f0;
       font-weight: 300;
     }
 
@@ -768,7 +771,7 @@
     }
 
     .win-item p {
-      color: #a0aec0;
+      color: #e2e8f0;
       font-size: 1.1rem;
       line-height: 1.6;
     }
@@ -854,6 +857,22 @@
       padding: 0.4rem 1.2rem;
       border-radius: 40px;
       font-size: 0.9rem;
+    }
+
+    .portfolio-summary {
+      font-size: 0.95rem;
+      color: #e2e8f0;
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.6s cubic-bezier(0.2, 0.9, 0.3, 1) 0.1s;
+      max-width: 90%;
+    }
+
+    .portfolio-item:hover .portfolio-summary {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     /* Testimonials */
@@ -1077,7 +1096,7 @@
     }
 
     .footer-about {
-      color: #8a9bb5;
+      color: #cbd5e0;
       line-height: 1.8;
       margin-bottom: 2rem;
       font-size: 1rem;
@@ -1100,7 +1119,7 @@
     }
 
     .footer-col a {
-      color: #8a9bb5;
+      color: #cbd5e0;
       text-decoration: none;
       transition: color 0.3s ease;
       font-weight: 300;
@@ -1128,7 +1147,7 @@
     }
 
     .newsletter-form p {
-      color: #8a9bb5;
+      color: #cbd5e0;
       margin-bottom: 1.5rem;
       font-size: 1rem;
       max-width: 350px;
@@ -1474,6 +1493,7 @@
           <div class="portfolio-client">UBER</div>
           <h3 class="portfolio-title">Uber Rentals</h3>
           <div class="portfolio-category">Social Media Campaign</div>
+          <p class="portfolio-summary">Driving brand preference through localized storytelling and high-impact social visuals that resonate with the UAE market.</p>
           <div class="portfolio-metrics">
             <span class="portfolio-metric">+210% engagement</span>
             <span class="portfolio-metric">4.2x ROI</span>
@@ -1488,6 +1508,7 @@
           <div class="portfolio-client">BLINKERS BREW</div>
           <h3 class="portfolio-title">Brand Identity</h3>
           <div class="portfolio-category">Full Branding</div>
+          <p class="portfolio-summary">Crafting a distinct visual identity that cuts through the noise of the craft beverage market with bold typography.</p>
           <div class="portfolio-metrics">
             <span class="portfolio-metric">+150% awareness</span>
             <span class="portfolio-metric">Best in category</span>
@@ -1502,6 +1523,7 @@
           <div class="portfolio-client">ACKO INSURANCE</div>
           <h3 class="portfolio-title">CSR Campaign</h3>
           <div class="portfolio-category">Digital Campaign</div>
+          <p class="portfolio-summary">Humanizing insurance with a heart-warming CSR initiative that went viral across social platforms.</p>
           <div class="portfolio-metrics">
             <span class="portfolio-metric">+180% reach</span>
             <span class="portfolio-metric">3.8x engagement</span>
@@ -1516,6 +1538,7 @@
           <div class="portfolio-client">CNBC - TV18</div>
           <h3 class="portfolio-title">Event Campaign</h3>
           <div class="portfolio-category">Digital Strategy</div>
+          <p class="portfolio-summary">Amplifying thought leadership through strategic digital event coverage and real-time content distribution.</p>
           <div class="portfolio-metrics">
             <span class="portfolio-metric">+300% views</span>
             <span class="portfolio-metric">Industry leader</span>
@@ -1530,6 +1553,7 @@
           <div class="portfolio-client">MINIFEEL INDIA</div>
           <h3 class="portfolio-title">Growth Campaign</h3>
           <div class="portfolio-category">10 to 1500 orders/month</div>
+          <p class="portfolio-summary">Scaling e-commerce revenue through data-driven performance marketing funnels and CRO.</p>
           <div class="portfolio-metrics">
             <span class="portfolio-metric">150x growth</span>
             <span class="portfolio-metric">₹10M+ revenue</span>
@@ -1544,6 +1568,7 @@
           <div class="portfolio-client">AHILYA JEWELRY</div>
           <h3 class="portfolio-title">Brand Visibility</h3>
           <div class="portfolio-category">Creative Advertising</div>
+          <p class="portfolio-summary">Elevating traditional luxury into the digital age with premium aesthetic campaigns and targeted reach.</p>
           <div class="portfolio-metrics">
             <span class="portfolio-metric">+250% engagement</span>
             <span class="portfolio-metric">Premium positioning</span>
@@ -1993,97 +2018,150 @@
       // Three.js Setup
       const canvas = document.getElementById('three-canvas');
       const scene = new THREE.Scene();
-      scene.background = new THREE.Color(0x030711);
+      // Darker background for night city feel
+      scene.background = new THREE.Color(0x020408);
+      scene.fog = new THREE.FogExp2(0x020408, 0.02);
       
       const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-      camera.position.z = 30;
+      camera.position.set(0, 5, 30);
       
       const renderer = new THREE.WebGLRenderer({ canvas, alpha: false, antialias: true });
       renderer.setSize(window.innerWidth, window.innerHeight);
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5)); // Optimize performance
 
-      // Dubai skyline particles
-      const particlesGeometry = new THREE.BufferGeometry();
-      const particlesCount = 2000;
-      const posArray = new Float32Array(particlesCount * 3);
-      const colorArray = new Float32Array(particlesCount * 3);
+      // --- DYNAMIC CITYSCAPE GENERATION ---
 
-      for(let i = 0; i < particlesCount * 3; i += 3) {
-        // Create building-like formations
-        const x = (Math.random() - 0.5) * 100;
-        const y = (Math.random() * 30) - 5;
-        const z = (Math.random() - 0.5) * 50;
-        
-        posArray[i] = x;
-        posArray[i+1] = y;
-        posArray[i+2] = z;
-        
-        // Colors: warm golds and blues for Dubai skyline
-        const color = new THREE.Color();
-        if (Math.random() > 0.5) {
-          color.setHSL(0.6, 0.8, 0.5 + Math.random() * 0.3); // Blues
-        } else {
-          color.setHSL(0.1, 0.8, 0.6 + Math.random() * 0.3); // Golds
+      // 1. Buildings (Vertical Particle Clusters)
+      const buildingGeometry = new THREE.BufferGeometry();
+      const buildingCount = 4000; 
+      const buildingPos = new Float32Array(buildingCount * 3);
+      const buildingColors = new Float32Array(buildingCount * 3);
+
+      let idx = 0;
+      // Create 60 "buildings"
+      for(let b = 0; b < 60; b++) {
+        const bX = (Math.random() - 0.5) * 120;
+        const bZ = (Math.random() - 0.5) * 60 - 10; 
+        const bW = 2 + Math.random() * 6; // Width
+        const bH = 10 + Math.random() * 30; // Height
+
+        // Particles per building
+        for(let p = 0; p < 70; p++) {
+          if(idx >= buildingCount * 3) break;
+          
+          const x = bX + (Math.random() - 0.5) * bW;
+          const y = (Math.random() * bH) - 10; // Start from below horizon
+          const z = bZ + (Math.random() - 0.5) * bW;
+
+          buildingPos[idx] = x;
+          buildingPos[idx+1] = y;
+          buildingPos[idx+2] = z;
+
+          // Colors: Gold (Luxury) & Cyan (Tech)
+          const color = new THREE.Color();
+          if(Math.random() > 0.7) {
+            color.setHex(0xffd700); // Gold
+          } else if (Math.random() > 0.5) {
+            color.setHex(0x00ffff); // Cyan
+          } else {
+            color.setHex(0x1a3a5a); // Dark Blue structure
+          }
+          
+          buildingColors[idx] = color.r;
+          buildingColors[idx+1] = color.g;
+          buildingColors[idx+2] = color.b;
+          
+          idx += 3;
         }
-        
-        colorArray[i] = color.r;
-        colorArray[i+1] = color.g;
-        colorArray[i+2] = color.b;
       }
-
-      particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
-      particlesGeometry.setAttribute('color', new THREE.BufferAttribute(colorArray, 3));
-
-      const particlesMaterial = new THREE.PointsMaterial({
-        size: 0.4,
+      
+      buildingGeometry.setAttribute('position', new THREE.BufferAttribute(buildingPos, 3));
+      buildingGeometry.setAttribute('color', new THREE.BufferAttribute(buildingColors, 3));
+      
+      const buildingMaterial = new THREE.PointsMaterial({
+        size: 0.25,
         vertexColors: true,
-        blending: THREE.AdditiveBlending,
         transparent: true,
         opacity: 0.8,
-        sizeAttenuation: true
-      });
-
-      const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
-      scene.add(particlesMesh);
-
-      // Add depth with additional particle layer
-      const particlesGeometry2 = new THREE.BufferGeometry();
-      const posArray2 = new Float32Array(1000 * 3);
-      for(let i = 0; i < 1000 * 3; i += 3) {
-        posArray2[i] = (Math.random() - 0.5) * 150;
-        posArray2[i+1] = (Math.random() - 0.5) * 50;
-        posArray2[i+2] = (Math.random() - 0.5) * 100 - 30;
-      }
-      particlesGeometry2.setAttribute('position', new THREE.BufferAttribute(posArray2, 3));
-      const particlesMaterial2 = new THREE.PointsMaterial({
-        size: 0.15,
-        color: 0x99ccff,
         blending: THREE.AdditiveBlending,
-        transparent: true,
-        opacity: 0.3,
         sizeAttenuation: true
       });
-      const particlesMesh2 = new THREE.Points(particlesGeometry2, particlesMaterial2);
-      scene.add(particlesMesh2);
+      
+      const cityMesh = new THREE.Points(buildingGeometry, buildingMaterial);
+      scene.add(cityMesh);
+
+      // 2. Traffic (Moving Lights)
+      const trafficGeometry = new THREE.BufferGeometry();
+      const trafficCount = 1500;
+      const trafficPos = new Float32Array(trafficCount * 3);
+      const trafficSpeeds = [];
+      
+      for(let i=0; i<trafficCount*3; i+=3) {
+        trafficPos[i] = (Math.random() - 0.5) * 140; // Wide spread X
+        trafficPos[i+1] = -10 + Math.random() * 2; // Street level Y
+        trafficPos[i+2] = (Math.random() - 0.5) * 60; // Depth Z
+        trafficSpeeds.push((Math.random() + 0.2) * 0.15); // Random speeds
+      }
+      
+      trafficGeometry.setAttribute('position', new THREE.BufferAttribute(trafficPos, 3));
+      
+      const trafficMaterial = new THREE.PointsMaterial({
+        size: 0.15,
+        color: 0xff0055, // Red taillights / brake lights
+        transparent: true,
+        opacity: 0.6,
+        blending: THREE.AdditiveBlending
+      });
+      
+      const trafficMesh = new THREE.Points(trafficGeometry, trafficMaterial);
+      scene.add(trafficMesh);
+
+      // 3. Ambient Particles (Dust/Glow)
+      const ambientGeometry = new THREE.BufferGeometry();
+      const ambientCount = 500;
+      const ambientPos = new Float32Array(ambientCount * 3);
+      
+      for(let i=0; i<ambientCount*3; i+=3) {
+        ambientPos[i] = (Math.random() - 0.5) * 100;
+        ambientPos[i+1] = (Math.random() - 0.5) * 50;
+        ambientPos[i+2] = (Math.random() - 0.5) * 50;
+      }
+      
+      ambientGeometry.setAttribute('position', new THREE.BufferAttribute(ambientPos, 3));
+      const ambientMaterial = new THREE.PointsMaterial({
+        size: 0.1,
+        color: 0xffffff,
+        transparent: true,
+        opacity: 0.2,
+        blending: THREE.AdditiveBlending
+      });
+      const ambientMesh = new THREE.Points(ambientGeometry, ambientMaterial);
+      scene.add(ambientMesh);
 
       // Animate
       let time = 0;
       function animate() {
         requestAnimationFrame(animate);
         
-        time += 0.001;
+        time += 0.002;
         
-        // Rotate slowly
-        particlesMesh.rotation.y += 0.0002;
-        particlesMesh.rotation.x += 0.0001;
-        particlesMesh2.rotation.y -= 0.0003;
+        // Move Traffic
+        const tPositions = trafficMesh.geometry.attributes.position.array;
+        for(let i=0; i<trafficCount; i++) {
+          tPositions[i*3] += trafficSpeeds[i]; // Move along X
+          if(tPositions[i*3] > 70) tPositions[i*3] = -70; // Loop back
+        }
+        trafficMesh.geometry.attributes.position.needsUpdate = true;
+
+        // Rotate City Slowly
+        cityMesh.rotation.y = Math.sin(time * 0.1) * 0.05;
         
-        // Pulsing lights effect
-        particlesMaterial.opacity = 0.7 + Math.sin(time * 10) * 0.2;
+        // Float Ambient Particles
+        ambientMesh.rotation.y -= 0.0005;
         
-        // Camera movement for depth
-        camera.position.x = Math.sin(time * 0.2) * 5;
-        camera.position.y = Math.cos(time * 0.3) * 2;
+        // Camera Sway
+        camera.position.x = Math.sin(time * 0.3) * 2;
+        camera.position.y = 5 + Math.cos(time * 0.2) * 1;
         camera.lookAt(0, 0, 0);
         
         renderer.render(scene, camera);
