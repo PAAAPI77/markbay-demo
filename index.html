@@ -44,6 +44,97 @@
       border-color: rgba(0, 0, 0, 0.05);
     }
 
+    /* Background Image Container */
+    .bg-image-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -3;
+      pointer-events: none;
+    }
+
+    .bg-image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Animated overlay for live feel */
+    .bg-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -2;
+      pointer-events: none;
+      background: linear-gradient(
+        135deg,
+        rgba(3, 7, 17, 0.7) 0%,
+        rgba(3, 7, 17, 0.4) 50%,
+        rgba(3, 7, 17, 0.6) 100%
+      );
+      animation: overlayPulse 8s ease-in-out infinite;
+    }
+
+    body.light-mode .bg-overlay {
+      background: linear-gradient(
+        135deg,
+        rgba(248, 250, 255, 0.7) 0%,
+        rgba(248, 250, 255, 0.5) 50%,
+        rgba(248, 250, 255, 0.6) 100%
+      );
+    }
+
+    @keyframes overlayPulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.8; }
+    }
+
+    /* Floating particles for live feel */
+    .floating-particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .particle {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background: rgba(153, 204, 255, 0.6);
+      border-radius: 50%;
+      animation: floatParticle 15s infinite linear;
+    }
+
+    body.light-mode .particle {
+      background: rgba(10, 26, 42, 0.4);
+    }
+
+    @keyframes floatParticle {
+      0% {
+        transform: translateY(100vh) translateX(0) rotate(0deg);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      90% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100vh) translateX(100px) rotate(720deg);
+        opacity: 0;
+      }
+    }
+
     /* Three.js Canvas */
     #three-canvas {
       position: fixed;
@@ -51,7 +142,7 @@
       left: 0;
       width: 100vw;
       height: 100vh;
-      z-index: -2;
+      z-index: -1;
       pointer-events: none;
       filter: blur(0.8px) brightness(0.9);
       transition: filter 2s ease;
@@ -134,6 +225,13 @@
       -webkit-text-fill-color: transparent;
       background-size: 200% auto;
       animation: gradientShift 8s ease infinite;
+    }
+
+    body.light-mode .serif-accent {
+      background: linear-gradient(135deg, #0a1a2a, #1a3a5a, #0a1a2a);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     @keyframes gradientShift {
@@ -236,6 +334,13 @@
       animation: logoGlow 6s ease infinite;
       position: relative;
       display: inline-block;
+    }
+
+    body.light-mode .logo-text {
+      background: linear-gradient(135deg, #0a1a2a, #2a4a6a, #0a1a2a);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     @keyframes logoGlow {
@@ -470,6 +575,13 @@
       animation: gradientShift 10s ease infinite;
     }
 
+    body.light-mode .hero-gradient {
+      background: linear-gradient(135deg, #0a1a2a, #1a3a5a, #0a1a2a);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
     .hero p {
       font-size: 1.5rem;
       color: #8a9bb5;
@@ -499,6 +611,13 @@
       -webkit-text-fill-color: transparent;
       margin-bottom: 0.5rem;
       line-height: 1;
+    }
+
+    body.light-mode .real-metric .number {
+      background: linear-gradient(135deg, #0a1a2a, #2a5a8a);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     .real-metric .label {
@@ -865,6 +984,13 @@
       -webkit-text-fill-color: transparent;
     }
 
+    body.light-mode .roi-value {
+      background: linear-gradient(135deg, #0a1a2a, #2a5a8a);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
     .calculator-result {
       background: rgba(0,0,0,0.2);
       border-radius: 50px;
@@ -1036,6 +1162,17 @@
   </style>
 </head>
 <body>
+  <!-- Background Image Container -->
+  <div class="bg-image-container">
+    <img src="1.jpg" alt="Background" id="bgImage">
+  </div>
+  
+  <!-- Animated Overlay -->
+  <div class="bg-overlay"></div>
+  
+  <!-- Floating Particles -->
+  <div class="floating-particles" id="particles"></div>
+
   <!-- Three.js Canvas -->
   <canvas id="three-canvas"></canvas>
 
@@ -1689,6 +1826,23 @@
       document.getElementById('logo').addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
+
+      // Create floating particles
+      const particlesContainer = document.getElementById('particles');
+      for (let i = 0; i < 30; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.left = Math.random() * 100 + 'vw';
+        particle.style.animationDelay = Math.random() * 15 + 's';
+        particle.style.animationDuration = (15 + Math.random() * 10) + 's';
+        particlesContainer.appendChild(particle);
+      }
+
+      // Preload background image
+      const bgImage = document.getElementById('bgImage');
+      bgImage.onload = () => {
+        bgImage.style.opacity = '1';
+      };
 
       // Three.js Setup
       const canvas = document.getElementById('three-canvas');
