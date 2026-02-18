@@ -28,29 +28,35 @@
     body {
       font-family: 'Inter', sans-serif;
       background: #030711;
-      color: #ffffff;
+      color: #f0f2f5;
       overflow-x: hidden;
       transition: background-color 1.2s cubic-bezier(0.4, 0, 0.2, 1);
       line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
     }
 
     body.light-mode {
-      background: #f8faff;
-      color: #0a1a2a;
+      background: #ffffff;
+      color: #050505;
     }
 
     body.light-mode .glass-card {
-      background: rgba(255, 255, 255, 0.7);
-      border-color: rgba(0, 0, 0, 0.05);
+      background: rgba(255, 255, 255, 0.85);
+      border-color: rgba(0, 0, 0, 0.08);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
     }
 
     /* Background Image Container */
     .bg-image-container {
       position: fixed;
       top: 0;
+      top: -10vh;
       left: 0;
       width: 100vw;
       height: 100vh;
+      height: 120vh;
       z-index: -3;
       pointer-events: none;
     }
@@ -72,19 +78,20 @@
       pointer-events: none;
       background: linear-gradient(
         135deg,
-        rgba(3, 7, 17, 0.7) 0%,
-        rgba(3, 7, 17, 0.4) 50%,
-        rgba(3, 7, 17, 0.6) 100%
+        rgba(3, 7, 17, 0.92) 0%,
+        rgba(3, 7, 17, 0.85) 50%,
+        rgba(3, 7, 17, 0.9) 100%
       );
       animation: overlayPulse 8s ease-in-out infinite;
+      backdrop-filter: blur(4px);
     }
 
     body.light-mode .bg-overlay {
       background: linear-gradient(
         135deg,
-        rgba(248, 250, 255, 0.7) 0%,
-        rgba(248, 250, 255, 0.5) 50%,
-        rgba(248, 250, 255, 0.6) 100%
+        rgba(255, 255, 255, 0.92) 0%,
+        rgba(255, 255, 255, 0.85) 50%,
+        rgba(255, 255, 255, 0.9) 100%
       );
     }
 
@@ -210,9 +217,17 @@
 
     /* Premium typography with more spacing */
     h1, h2, h3, h4 {
-      font-weight: 500;
-      letter-spacing: -0.03em;
+      font-weight: 600;
+      letter-spacing: -0.04em;
       line-height: 1.1;
+      color: #ffffff;
+    }
+
+    body.light-mode h1, 
+    body.light-mode h2, 
+    body.light-mode h3, 
+    body.light-mode h4 {
+      color: #000000;
     }
 
     .serif-accent {
@@ -250,20 +265,20 @@
 
     .section-sub {
       font-size: 1.4rem;
-      color: #8a9bb5;
+      color: #a0aec0;
       max-width: 700px;
       margin-bottom: 4rem;
-      font-weight: 300;
-      letter-spacing: 0.2px;
+      font-weight: 400;
+      letter-spacing: -0.01em;
     }
 
     body.light-mode .section-sub {
-      color: #4a5a70;
+      color: #4a5568;
     }
 
     /* Glass morphism with more depth */
     .glass-card {
-      background: rgba(15, 25, 35, 0.3);
+      background: rgba(20, 25, 35, 0.6);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       border: 1px solid rgba(255, 255, 255, 0.05);
@@ -584,11 +599,15 @@
 
     .hero p {
       font-size: 1.5rem;
-      color: #8a9bb5;
+      color: #cbd5e0;
       max-width: 700px;
       margin-bottom: 3rem;
       line-height: 1.6;
-      font-weight: 300;
+      font-weight: 400;
+    }
+
+    body.light-mode .hero p {
+      color: #4a5568;
     }
 
     /* Real Metrics with more presence */
@@ -621,10 +640,14 @@
     }
 
     .real-metric .label {
-      color: #8a9bb5;
+      color: #a0aec0;
       font-size: 1rem;
       letter-spacing: 0.5px;
       font-weight: 300;
+    }
+
+    body.light-mode .real-metric .label {
+      color: #4a5568;
     }
 
     /* Hero CTAs */
@@ -702,7 +725,7 @@
       align-items: center;
       gap: 1rem;
       font-size: 1.1rem;
-      color: #8a9bb5;
+      color: #a0aec0;
       font-weight: 300;
     }
 
@@ -745,7 +768,7 @@
     }
 
     .win-item p {
-      color: #8a9bb5;
+      color: #a0aec0;
       font-size: 1.1rem;
       line-height: 1.6;
     }
@@ -1085,6 +1108,105 @@
 
     .footer-col a:hover {
       color: #ffffff;
+    }
+
+    /* Newsletter Form */
+    .newsletter-form {
+      margin-top: 3rem;
+      margin-bottom: 2rem;
+    }
+
+    .newsletter-form h4 {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+    }
+
+    body.light-mode .newsletter-form h4 {
+      color: #000000;
+    }
+
+    .newsletter-form p {
+      color: #8a9bb5;
+      margin-bottom: 1.5rem;
+      font-size: 1rem;
+      max-width: 350px;
+    }
+
+    body.light-mode .newsletter-form p {
+      color: #4a5568;
+    }
+
+    .newsletter-form form {
+      display: flex;
+      position: relative;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 60px;
+      padding: 0.4rem;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      max-width: 400px;
+    }
+
+    body.light-mode .newsletter-form form {
+      background: rgba(0, 0, 0, 0.03);
+      border-color: rgba(0, 0, 0, 0.1);
+    }
+
+    .newsletter-form input {
+      flex-grow: 1;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: #ffffff;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      padding: 0.6rem 1.2rem;
+    }
+
+    body.light-mode .newsletter-form input {
+      color: #050505;
+    }
+
+    .newsletter-form input::placeholder {
+      color: #8a9bb5;
+      opacity: 0.7;
+    }
+
+    body.light-mode .newsletter-form input::placeholder {
+      color: #4a5568;
+    }
+
+    .newsletter-form button {
+      background: #ffffff;
+      color: #030711;
+      border: none;
+      border-radius: 50%;
+      width: 44px;
+      height: 44px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      transition: all 0.4s cubic-bezier(0.2, 0.9, 0.3, 1);
+      flex-shrink: 0;
+    }
+
+    body.light-mode .newsletter-form button {
+      background: #0a1a2a;
+      color: #ffffff;
+    }
+
+    .newsletter-form button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 10px 20px -5px rgba(255,255,255,0.3);
+    }
+
+    body.light-mode .newsletter-form button:hover {
+      box-shadow: 0 10px 20px -5px rgba(0,0,0,0.2);
     }
 
     .lang-toggle {
@@ -1598,6 +1720,16 @@
           <p class="footer-about">
             A leading advertising agency based in Dubai. We blend creativity with data-driven insights to build compelling campaigns across SEO, SEM, social media, content marketing, and more.
           </p>
+          <div class="newsletter-form">
+            <h4>Stay ahead of the curve</h4>
+            <p>Get exclusive insights & strategies delivered to your inbox.</p>
+            <form>
+                <input type="email" placeholder="your.email@company.com" required>
+                <button type="submit" aria-label="Subscribe to newsletter">
+                  <i class="fas fa-arrow-right"></i>
+                </button>
+            </form>
+          </div>
           <div class="lang-toggle">
             <span class="active" id="langEn">EN</span>
             <span id="langAr">عربي</span>
@@ -1674,14 +1806,28 @@
       });
 
       // Header scroll
+      // Header scroll & Parallax effects
       const header = document.getElementById('header');
+      const bgImageContainer = document.querySelector('.bg-image-container');
+      
       window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
+        const scrolled = window.scrollY;
+        
+        // Header state change 
+        if (scrolled > 50) {
           header.classList.add('scrolled');
         } else {
           header.classList.remove('scrolled');
         }
-      });
+
+        // Subtle parallax for background image
+        if (bgImageContainer) {
+          bgImageContainer.style.transform = `translateY(${scrolled * 0.2}px)`;
+        }
+
+        // Three.js camera parallax
+        camera.position.z = 30 + scrolled * 0.02;
+      }); 
 
       // Counter animation
       const counters = document.querySelectorAll('.counter');
