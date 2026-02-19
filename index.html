@@ -1844,9 +1844,11 @@
           header.classList.remove('scrolled');
         }
 
-        // Subtle parallax for background image
+        // Zoom-out parallax effect for background image
         if (bgImageContainer) {
-          bgImageContainer.style.transform = `translateY(${scrolled * 0.2}px)`;
+          // Scale down from 1 to 0.9 over the first ~670px of scroll
+          const scale = Math.max(0.9, 1 - scrolled * 0.00015);
+          bgImageContainer.style.transform = `scale(${scale})`;
         }
 
         // Text Parallax & Fade-out
